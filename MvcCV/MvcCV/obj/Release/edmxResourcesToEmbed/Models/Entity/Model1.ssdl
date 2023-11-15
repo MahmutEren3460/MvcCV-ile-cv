@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Deneyimler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="varchar" MaxLength="100" />
+    <Property Name="Altbaslik" Type="varchar" MaxLength="100" />
+    <Property Name="Aciklama" Type="varchar(max)" />
+    <Property Name="Tarih" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tbl_Egitim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="varchar" MaxLength="100" />
+    <Property Name="AltBaslik" Type="varchar" MaxLength="100" />
+    <Property Name="AltBaslik2" Type="varchar" MaxLength="100" />
+    <Property Name="GNO" Type="varchar" MaxLength="10" />
+    <Property Name="Tarih" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Hobi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="Aciklama2" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Tbl_İletişim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="100" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="Konu" Type="varchar" MaxLength="100" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="1000" />
+    <Property Name="Tarih" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_Login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="varchar" MaxLength="20" />
+    <Property Name="Sifre" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Tbl_Sertifika">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tarih" Type="varchar" MaxLength="30" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tbl_SosyalMedya">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="30" />
+    <Property Name="Link" Type="varchar" MaxLength="100" />
+    <Property Name="ikon" Type="varchar" MaxLength="30" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_Yetenek">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Yetenek" Type="varchar" MaxLength="100" />
+    <Property Name="Oran" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="tblhakkında">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="30" />
+    <Property Name="Soyad" Type="varchar" MaxLength="30" />
+    <Property Name="Adres" Type="varchar" MaxLength="100" />
+    <Property Name="Telefon" Type="varchar" MaxLength="20" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="Resim" Type="varchar" MaxLength="100" />
+    <Property Name="Acıklama" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="dbCVModelStoreContainer">
+    <EntitySet Name="Tbl_Deneyimler" EntityType="Self.Tbl_Deneyimler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Egitim" EntityType="Self.Tbl_Egitim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hobi" EntityType="Self.tbl_Hobi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_İletişim" EntityType="Self.Tbl_İletişim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Login" EntityType="Self.Tbl_Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Sertifika" EntityType="Self.Tbl_Sertifika" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SosyalMedya" EntityType="Self.tbl_SosyalMedya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Yetenek" EntityType="Self.Tbl_Yetenek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblhakkında" EntityType="Self.tblhakkında" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

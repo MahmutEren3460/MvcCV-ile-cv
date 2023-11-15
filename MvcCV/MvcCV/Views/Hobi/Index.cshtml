@@ -1,0 +1,61 @@
+﻿@using MvcCV.Models.Entity;
+@model List<tbl_Hobi>
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<br />
+<h2>Hobi Sayfası</h2>
+<br />
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    <!-- timeline time label -->
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-star bg-primary"></i>
+                                            <div class="timeline-item">
+                                                <div class="timeline-body">
+                                                    @item.Aciklama
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <a href="/Hobi/HobiSil/@item.ID" class="btn btn-danger btn-sm">Sil</a>
+                                                    <a href="/Hobi/HobiGetir/@item.ID" class="btn btn-success btn-sm">Düzenle</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <a href="/Hobi/HobiEkle/" class="btn btn-info">Yeni Hobi Ekle</a>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>

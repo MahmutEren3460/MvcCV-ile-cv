@@ -1,0 +1,101 @@
+﻿@using MvcCV.Models.Entity
+@model List<tbl_SosyalMedya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Sosyal Medya</th>
+                                            <th>Durum</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.Ad</td>
+                                            @if (@item.Durum == true)
+                                            {
+                                                <td>Aktif</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Pasif</td>
+                                            }
+                                            <td>
+                                                <a class="btn btn-info btn-sm" href="/SosyalMedya/Getir/@item.ID">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Düzenle
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" href="/SosyalMedya/Sil/@item.ID">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+                                                    Sil
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Ekle</button>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Sosyal Medya Ekleme Paneli</h2>
+                    </div>
+                    <form method="post" action="/SosyalMedya/Ekle/">
+                        <div class="modal-body">
+                            <label>Sosyal Medya İsmi</label>
+                            <input class="form-control" type="text" name="Ad" />
+                            <br />
+                            <label>Sosyal Medya Linki</label>
+                            <input class="form-control" type="text" name="Link" />
+                            <br />
+                            <label>İkon Değeri</label>
+                            <input class="form-control" type="text" name="İkon" />
+                            <br />
+                            <button class="btn btn-info">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
